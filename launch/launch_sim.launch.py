@@ -39,7 +39,18 @@ def generate_launch_description():
 
 
 
-    # Launch them all!
+    diff_drive_spawner = Node(
+    package="controller_manager",
+    executable="spawner.py",
+    arguments=["diff_cont"],
+)
+    joint_broad_spawner = Node(
+    package="controller_manager",
+    executable="spawner.py",
+    arguments=["joint_broad"],
+)
+# Then at the bottom...
+
     return LaunchDescription([
         rsp,
         gazebo,
